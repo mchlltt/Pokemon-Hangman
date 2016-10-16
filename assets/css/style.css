@@ -13,15 +13,21 @@ header img {
 	width: 60%;
 }
 
-.col-xs-6 {
-	border: 5px solid black;
-	min-height: 550px;
+.col-md-12 {
+	
+	min-height: 200px;
 	padding: 20px;
 }
 
+.col-xs-2, .col-xs-8 {
+	height: 100%;
+}
+
 .content {
+	border: 5px solid black;
+	border-radius: 15px;
 	margin: 0 auto;
-	width: 80%;
+	max-width: 80%;
 }
 
 p {
@@ -33,11 +39,6 @@ p {
 	clear: both;
 	content:"";
 	display: table;
-}
-
-.professor {
-	display: block;
-	margin: 0 auto;
 }
 
 .blank-p {
@@ -53,8 +54,30 @@ img {
 	margin: 0 auto;
 }
 
-.segment img {
+.sprite {
 	margin-bottom: -10%;
 	margin-top: -5%;
-	width: 50%;
+	max-height: 100px;
+}
+
+.icon {
+	display: inline-block;
+	margin: 0;
+	max-height: 32px;
+	max-width: 32px;
+	padding-bottom: 4px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.collection {
+	align-items: center;
+	display: inline-flex;
+	justify-content: space-between;
 }
