@@ -82,7 +82,7 @@ function progressUpdate() {
 document.onkeyup = function(event) {
 	var currentGuess = String.fromCharCode(event.keyCode).toLowerCase();
 	
-	if (isAlpha(currentGuess)) {
+	if (isAlpha(currentGuess) && word.length > 0) {
 		if (letters.indexOf(currentGuess) !== -1) {
 			lettersCorrect.push(currentGuess);
 		} else {
