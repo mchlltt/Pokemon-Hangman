@@ -9,16 +9,14 @@ header {
 }
 
 header img {
-	display: block;
-	margin: 0 auto;
-	width: 60%;
 	margin-top: 10px;
+	width: 60%;
 }
 
 .col-xs-6 {
 	border: 5px solid black;
+	min-height: 550px;
 	padding: 20px;
-	height: 500px;
 }
 
 .content {
@@ -28,7 +26,6 @@ header img {
 
 p {
 	font-size: 24px;
-	margin-bottom: 20px;
 	text-align: center;
 }
 
@@ -41,4 +38,23 @@ p {
 .professor {
 	display: block;
 	margin: 0 auto;
+}
+
+.blank-p {
+	letter-spacing: 6px;
+}
+
+.segment {
+	margin: 6% auto;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+}
+
+.segment img {
+	margin-bottom: -10%;
+	margin-top: -5%;
+	width: 50%;
 }
