@@ -36,6 +36,7 @@ function roundReset() {
 	blanks = [];
 	lettersIncorrect = [];
 	lettersCorrect = [];
+	progress = [];
 	guesses = -3;
 	number = Math.floor(Math.random()*492);
 	word = pokeData.name[number];
@@ -58,6 +59,7 @@ function letterReset() {
 }
 
 function winBehavior() {
+	document.getElementById('blanks').innerHTML='<p>' + letters.join('') + '</p>';
 	document.getElementById('remaining').innerHTML='<p>You win!!</p>';
 	wins++;
 }
