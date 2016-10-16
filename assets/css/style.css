@@ -9,11 +9,16 @@ header {
 }
 
 header img {
-	width: 100%;
+	display: block;
+	margin: 0 auto;
+	width: 60%;
+	margin-top: 10px;
 }
 
 .col-xs-6 {
 	border: 5px solid black;
+	padding: 20px;
+	height: 500px;
 }
 
 .content {
