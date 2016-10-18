@@ -1,9 +1,8 @@
-// TODO: play (correct) sound on win
 // TODO: header image
 // TODO: side image
 // TODO: parse type correctly
 // TODO: use type for colors
-// TODO: add pokeball? add list or image of what you've caught so far?
+// TODO: decorate yr bag
 // TODO: figure out why there's no space when there are two of the same letter in a row.
 
 // Initialize variables with correct types.
@@ -119,9 +118,6 @@ function winBehavior() {
 											    '<br>You win!!</p>';
 	document.getElementById('remaining').innerHTML='';
 	document.getElementById('guessed').innerHTML='';
-	document.getElementById('image').innerHTML='<img src="assets/images/sprites/' +
-												id + '.png" alt="Picture of '+ word + 
-												'"class="sprite">';
 	if (sound) {
 		var audio = new Audio('assets/music/' + id + '.mp3');
 		audio.play();
@@ -140,9 +136,6 @@ function lossBehavior() {
 											    '<br>You lose.</p>';
 	document.getElementById('remaining').innerHTML='';
 	document.getElementById('guessed').innerHTML='';
-	document.getElementById('image').innerHTML='<img src="assets/images/sprites/' +
-												id + '.png" alt="Picture of '+ word + 
-												'"class="sprite">';
 	word = '';
 }
 
