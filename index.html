@@ -10,31 +10,32 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-	<header class="row clearfix">
+	<header class="row">
 		<div class="col-xs-12">
-			<img src="assets/images/PokemonLogo.png" alt="Pokemon Hangman Logo Header">
+			<img src="assets/images/PokemonLogo.png" alt="Pokemon logo header image" class="bottom">
+			<img src="assets/images/hangman.png" alt="Hangman logo header image" class="top">
 		</div>
 	</header>
 
 	<div class="content row clearfix">
 		<div class="col-xs-2">
-			<button class="btn btn-danger segment left" id="toggle-audio">Turn sound off</button>
+			<button class="btn btn-default segment left" id="toggle-audio">Sound: On</button>
 		</div>
 		<div class="col-xs-8">
 			<div class="segment">
 				<p>Press space to start playing or to try a new word!</p>
 			</div>
-			<div class="col-xs-10"><div class="segment" id="blanks"></div></div>
+			<div class="segment" id="blanks"></div>
 		</div>
 		<div class="col-xs-2">
-			<div class="segment right" id="wins"></div>
+			<div class="segment right" id="wins"><p>Wins: 0</p></div>
 		</div>
 	</div>
 	<div class="content row clearfix">
 		<div class="col-md-12">
 			<div class="segment" id="remaining"></div>
 			<div class="segment" id="guessed"></div>
-			<div class="segment collection" id="bag"></div>
+			<div class="segment collection clearfix" id="bag"></div>
 
 		</div>
 	</div>
