@@ -7,8 +7,8 @@ body {
 }
 
 header, .col-xs-12 {
-	height: 380px;
-	margin-bottom: 30px;
+	max-height: 270px;
+	margin-bottom: 15px;
 	width: 100%;
 }
 
@@ -24,19 +24,23 @@ header img {
 
 .col-xs-2, .col-xs-8 {
 	height: 100%;
-	padding: 3px 5px;
-}
-
-.btn {
-	border-radius: 10px;
+	padding: 5px;
 }
 
 .content {
-	background: white;
+	background-color: rgba(255, 255, 255, .4);
 	border: 5px double black;
 	border-radius: 15px;
 	margin: 0 auto;
 	max-width: 80%;
+}
+
+:not(.content) {
+	opacity: 1;
+}
+
+.p-button:hover {
+	font-weight: 700;
 }
 
 p {
@@ -90,17 +94,4 @@ img {
 	margin: 0 auto;
 	max-width: 100%;
 	min-height: 110px;
-}
-
-.top {
-	bottom: 120px;
-	height: auto;
-	left: 120px;
-	position: relative;
-	width: 40%;
-	z-index: 1;
-}
-
-.bottom {
-	z-index: 0;
 }

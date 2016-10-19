@@ -5,23 +5,25 @@
 	<!-- This game is intended solely as fan art. Most data, audio, and image files courtesy of Pokeapi. -->
 	<meta charset="UTF-8">
 	<title>Pokemon Hangman</title>
+	<!-- reset.css to clear browser defaults -->
 	<link rel="stylesheet" href="assets/css/reset.css">
+	<!-- Bootstrap CDN link -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+	<!-- Google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+	<!-- Personal stylesheet -->
 	<link rel="stylesheet" href="assets/css/style.css">
-	<script src="assets/javascript/game.js"></script>
 </head>
 <body>
 	<header class="row">
 		<div class="col-xs-12">
-			<img src="assets/images/PokemonLogo.png" alt="Pokemon logo header image" class="bottom">
-			<img src="assets/images/hangman.png" alt="Hangman logo header image" class="top">
+			<img src="assets/images/PH-Logo.png" alt="Pokemon Hangman title header">
 		</div>
 	</header>
 
 	<div class="content row clearfix">
 		<div class="col-xs-2">
-			<button class="btn btn-default segment left" id="toggle-audio">Sound: On</button>
+			<p role="button" class="left p-button" id="toggle-audio">Sound: On</p>
 		</div>
 		<div class="col-xs-8">
 			<div class="segment" id="instructions">
@@ -41,5 +43,9 @@
 
 		</div>
 	</div>
+
+<!-- JavaScript at the end of the body to avoid DOM ready issues. -->
+<script src="assets/javascript/game.js"></script>
+
 </body>
 </html>
