@@ -7,7 +7,9 @@
 	<title>Pokemon Hangman</title>
 	<link rel="stylesheet" href="assets/css/reset.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/style.css">
+	<script src="assets/javascript/game.js"></script>
 </head>
 <body>
 	<header class="row">
@@ -22,8 +24,8 @@
 			<button class="btn btn-default segment left" id="toggle-audio">Sound: On</button>
 		</div>
 		<div class="col-xs-8">
-			<div class="segment">
-				<p>Press space to start playing or to try a new word!</p>
+			<div class="segment" id="instructions">
+				<p>Press a key to start a new word.</p>
 			</div>
 			<div class="segment" id="blanks"></div>
 		</div>
@@ -39,9 +41,5 @@
 
 		</div>
 	</div>
-
-	<!-- At the bottom so the page can load. -->
-	<script src="assets/javascript/game.js"></script>
-
 </body>
 </html>

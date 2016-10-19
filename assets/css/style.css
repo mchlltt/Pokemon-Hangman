@@ -3,6 +3,7 @@ body {
 	background-size: cover;
 	margin: 0 auto;
 	width: 80%;
+	font-family: 'Comfortaa', Helvetica, 'Helvetica Neue', Arial;
 }
 
 header, .col-xs-12 {
@@ -23,6 +24,7 @@ header img {
 
 .col-xs-2, .col-xs-8 {
 	height: 100%;
+	padding: 3px 5px;
 }
 
 .btn {
@@ -62,8 +64,7 @@ img {
 }
 
 .sprite {
-	margin-bottom: -10%;
-	margin-top: -5%;
+	margin: 4px;
 	max-height: 100px;
 }
 
@@ -86,7 +87,8 @@ img {
 .collection {
 	display: inline-flex;
 	flex-flow: row wrap;
-	justify-content: space-between;
+	margin: 0 auto;
+	max-width: 100%;
 	min-height: 110px;
 }
 
