@@ -66,11 +66,14 @@ function roundReset() {
 	if (colorTwo === undefined) {
 		colorTwo = colorOne;
 	}
+	document.getElementById('top-box').style.borderColor = '#' + colorOne;
+	document.getElementById('bottom-box').style.borderColor = '#' + colorTwo;
 	// Add classes to some thing based on colorOne and colorTwo
 	progressUpdate();
 	document.getElementById('instructions').innerHTML='<p>Press a key to make a guess.</p>';
 	document.getElementById('wins').innerHTML='<p>Wins: ' + wins + '</p>';
 	document.getElementById('blanks').innerHTML='<p class="blank-p">' + progress.join('') + '</p>';
+	document.getElementById('blanks').style.lineHeight = 'normal';
 	document.getElementById('remaining').innerHTML='<p>Tries Remaining: ' + letters.length +
 												   '<img src="assets/images/poke-ball.png" alt="A pokeball" class="icon"></p>';
 	document.getElementById('guessed').innerHTML='<p>Letters already guessed:<br>' + lettersIncorrect.join(' ') + '</p>';
@@ -161,8 +164,9 @@ function progressUpdate() {
 // On win, increment win and change document.
 function winBehavior() {
 	document.getElementById('instructions').innerHTML='<p>Press a key to start a new word.</p>';
-	document.getElementById('blanks').innerHTML='<p>You caught ' + letters.join('') + '!' +
-											    '<br>You win!!</p>';
+	document.getElementById('blanks').innerHTML='<p>You caught ' + word + '!</p>' +
+											    '<p>You win!!</p>';
+	document.getElementById('blanks').style.lineHeight = '125%';
 	document.getElementById('remaining').innerHTML='';
 	document.getElementById('guessed').innerHTML='';
 	if (sound) {
@@ -182,8 +186,9 @@ function winBehavior() {
 // On loss, change document.
 function lossBehavior() {
 	document.getElementById('instructions').innerHTML='<p>Press a key to start a new word.</p>';
-	document.getElementById('blanks').innerHTML='<p>' + letters.join('') + ' got away...' +
-											    '<br>You lose.</p>';
+	document.getElementById('blanks').innerHTML='<p>' + word + ' got away...</p>' +
+											    '<p>You lose.</p>';
+	document.getElementById('blanks').style.lineHeight = '125%';
 	document.getElementById('remaining').innerHTML='';
 	document.getElementById('guessed').innerHTML='';
 	word = '';
