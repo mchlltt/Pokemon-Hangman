@@ -1,8 +1,8 @@
 library(rjson)
 
-pokemon <- read.csv(file = "~/cbc/week-3-game/assets/pokemon/pokemon.csv",stringsAsFactors = FALSE)
-types <- read.csv(file = "~/cbc/week-3-game/assets/pokemon/pokemon_types.csv",stringsAsFactors = FALSE)
-typemap <- read.csv(file = "~/cbc/week-3-game/assets/pokemon/types.csv",stringsAsFactors = FALSE)
+pokemon <- read.csv(file = "~/cbc/week-3-game/assets/data/pokemon.csv",stringsAsFactors = FALSE)
+types <- read.csv(file = "~/cbc/week-3-game/assets/data/pokemon_types.csv",stringsAsFactors = FALSE)
+typemap <- read.csv(file = "~/cbc/week-3-game/assets/data/types.csv",stringsAsFactors = FALSE)
 
 pokemon <- pokemon[,1:2]
 types <- types[,1:2]
@@ -28,6 +28,14 @@ for (i in 1:length(final$name)) {
 }
 
 final <- na.omit(final)
+
+object = ""
+for (i in 1:length(final$pokemon_id)) {
+  line = paste0("{id=",final$pokemon_id[i],",name='",final$name[i],"',type='",final$type[i],"'},")
+  object <- append(object,line)
+}
+
+writeLines(object,con = "output.txt")
 
 finalJSON <- toJSON(final)
 
