@@ -1,47 +1,11 @@
+/*General classes*/
 body {
-	background: url('../images/landscape.jpg') skyblue;
+	background: url('../images/landscape2.jpg') #7fac71;
 	background-size: cover;
+	background-repeat: no-repeat;
 	font-family: 'Comfortaa', Helvetica, 'Helvetica Neue', Arial;
-	margin: 0 auto;
-	padding-bottom: 30px;
-	width: 80%;
-}
-
-header, .col-xs-12 {
-	margin-bottom: 100px;
-	max-height: 270px;
-	width: 100%;
-}
-
-header img {
-	margin-top: 10px;
-	width: 60%;
-}
-
-.col-md-12 {
-	min-height: 200px;
-	padding: 20px;
-}
-
-.col-xs-2 {
-	padding: 5px;
-}
-
-.col-xs-8 {
-	height: 100%;
-}
-
-.content {
-	background: rgba(255, 255, 255, .4);
-	border: 5px double;
-	border-color: white;
-	border-radius: 15px;
-	margin: 0 auto;
-	max-width: 80%;
-}
-
-.p-button:hover {
-	font-weight: 700;
+	width: 98%;
+	padding: 1%;
 }
 
 p {
@@ -49,63 +13,60 @@ p {
 	text-align: center;
 }
 
-.clearfix:after {
-	clear: both;
-	content:"";
-	display: table;
+/*Header*/
+header img {
+	width: 40%;
+}
+
+/*Content*/
+.content {
+	background: rgba(255, 255, 255, .4);
+	border: 5px double;
+	border-color: white;
+	border-radius: 15px;
+	max-width: 90%;
+	padding: 5px;
+	min-height: 140px;
+}
+
+
+/*Top box*/
+.p-button:hover {
+	font-weight: 700;
 }
 
 .blank-p {
 	letter-spacing: 6px;
 }
 
-.segment {
-	margin: 2% auto;
-}
-
-.double {
-	line-height: normal;
-	margin-bottom: 10px;
-	min-height: 60px;
-}
-
-.valign {
-	line-height: 68px;
-}
-
-.row {
-	min-height: 130px;
-}
-
-img {
-	display: block;
-	margin: 0 auto;
-}
-
-.sprite {
-	margin: 4px;
-	max-height: 100px;
-}
-
 .icon {
-	display: inline-block;
-	margin: 0;
-	max-height: 32px;
-	max-width: 32px;
-	padding-bottom: 4px;
+	height: 32px;
 }
 
-.left {
-	float: left;
+
+/*Bottom box*/
+.bottom {
+	min-height: 235px;
 }
 
-.right {
-	float: right;
+.p-single {
+	height: 32px;
 }
+
+.p-double {
+	height: 58px;
+}
+
 
 .collection {
 	display: inline-flex;
 	flex-flow: row wrap;
-	margin: 0 auto;
-	max-width: 100%;
+	justify-content: space-between;
+	width: 100%;
+	min-height: 96px;
+}
+
+.collection:after {
+	content: "";
+	flex: auto;
 }

@@ -1,9 +1,7 @@
-// TODO: header image
-// TODO: use type for colors
 // TODO: decorate yr bag
 // TODO: favicon
 
-// Initialize variables with correct types.
+// Initialize global variables with correct types.
 var wins = 0;
 var types = [];
 var word = '';
@@ -17,8 +15,6 @@ var progress = [];
 var number = 0;
 var sound = true;
 var pokeBag = [];
-var colorOne = '';
-var colorTwo = '';
 
 // Initialize data sources.
 var pokeData = [
@@ -535,29 +531,27 @@ function roundReset() {
 	lettersIncorrect = [];
 	lettersCorrect = [];
 	progress = [];
-	guesses = 0;
+	guesses = -2;
 	number = Math.floor(Math.random()*pokeData.length);
 	word = pokeData[number].name;
 	id = pokeData[number].id;
 	letters = word.split('');
 	types = pokeData[number].type;
 	typeArray = types.split(', ');
-	colorOne = typeColors[typeArray[0]];
-	colorTwo = typeColors[typeArray[1]];
+	var colorOne = typeColors[typeArray[0]];
+	var colorTwo = typeColors[typeArray[1]];
 	if (colorTwo === undefined) {
 		colorTwo = colorOne;
 	}
 	document.getElementById('top-box').style.borderColor = '#' + colorOne;
 	document.getElementById('bottom-box').style.borderColor = '#' + colorTwo;
-	// Add classes to some thing based on colorOne and colorTwo
 	progressUpdate();
-	document.getElementById('instructions').innerHTML='<p>Press a key to make a guess.</p>';
-	document.getElementById('wins').innerHTML='<p>Wins: ' + wins + '</p>';
+	document.getElementById('instructions').innerHTML='Press a key to make a guess.';
+	document.getElementById('wins').innerHTML='Wins: ' + wins;
 	document.getElementById('blanks').innerHTML='<p class="blank-p">' + progress.join('') + '</p>';
-	document.getElementById('blanks').style.lineHeight = 'normal';
-	document.getElementById('remaining').innerHTML='<p>Tries Remaining: ' + letters.length +
-												   '<img src="assets/images/poke-ball.png" alt="A pokeball" class="icon"></p>';
-	document.getElementById('guessed').innerHTML='<p>Letters already guessed:<br>' + lettersIncorrect.join(' ') + '</p>';
+	document.getElementById('remaining').innerHTML='Tries Remaining: ' + (letters.length - guesses) +
+												   '<img src="assets/images/poke-ball.png" alt="A pokeball" class="icon">';
+	document.getElementById('guessed').innerHTML='Letters already guessed:<br>' + lettersIncorrect.join(' ');
 }
 
 
@@ -624,9 +618,9 @@ function letterReset() {
 	progressUpdate();
 	lettersRemaining = [];
 	document.getElementById('blanks').innerHTML='<p class="blank-p">' + progress.join('') + '</p>';
-	document.getElementById('remaining').innerHTML='<p>Tries Remaining: ' + (letters.length - guesses) +
-												   '<img src="assets/images/poke-ball.png" alt="A pokeball" class="icon"></p>';
-	document.getElementById('guessed').innerHTML='<p>Letters already guessed:<br>' + lettersIncorrect.join(' ') + '</p>';
+	document.getElementById('remaining').innerHTML='Tries Remaining: ' + (letters.length - guesses) +
+												   '<img src="assets/images/poke-ball.png" alt="A pokeball" class="icon">';
+	document.getElementById('guessed').innerHTML='Letters already guessed:<br>' + lettersIncorrect.join(' ');
 }
 
 
@@ -644,10 +638,9 @@ function progressUpdate() {
 
 // On win, increment win and change document.
 function winBehavior() {
-	document.getElementById('instructions').innerHTML='<p>Press a key to start a new word.</p>';
-	document.getElementById('blanks').innerHTML='<p>You caught ' + word + '!</p>' +
-											    '<p>You win!!</p>';
-	document.getElementById('blanks').style.lineHeight = '125%';
+	document.getElementById('instructions').innerHTML='Press a key to start a new word.</p>';
+	document.getElementById('blanks').innerHTML='<p class="flow-text">You caught ' + word + '!</p>' +
+											    '<p class="flow-text">You win!!</p>';
 	document.getElementById('remaining').innerHTML='';
 	document.getElementById('guessed').innerHTML='';
 	if (sound) {
@@ -655,7 +648,7 @@ function winBehavior() {
 		audio.play();
 	}
 	wins++;
-	document.getElementById('wins').innerHTML='<p>Wins: ' + wins + '</p>';
+	document.getElementById('wins').innerHTML='Wins: ' + wins;
 	pokeBag.push('<img src="assets/images/sprites/' +
 				 id + '.png" alt="Picture of '+ word +
 				 '"class="sprite">');
@@ -666,10 +659,9 @@ function winBehavior() {
 
 // On loss, change document.
 function lossBehavior() {
-	document.getElementById('instructions').innerHTML='<p>Press a key to start a new word.</p>';
-	document.getElementById('blanks').innerHTML='<p>' + word + ' got away...</p>' +
-											    '<p>You lose.</p>';
-	document.getElementById('blanks').style.lineHeight = '125%';
+	document.getElementById('instructions').innerHTML='Press a key to start a new word.</p>';
+	document.getElementById('blanks').innerHTML='<p class="flow-text">' + word + ' got away...</p>' +
+											    '<p class="flow-text">You lose.</p>';
 	document.getElementById('remaining').innerHTML='';
 	document.getElementById('guessed').innerHTML='';
 	word = '';
@@ -678,6 +670,7 @@ function lossBehavior() {
 
 // Toggle sound on/off.
 var button = document.getElementById("toggle-audio");
+
 button.addEventListener("click",function(e){
     if (sound === true) {
     	sound = false;

@@ -5,44 +5,57 @@
 	<!-- This game is intended solely as fan art. Most data, audio, and image files courtesy of Pokeapi. -->
 	<meta charset="UTF-8">
 	<title>Pokemon Hangman</title>
+	<!-- For media queries in Materialize. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- reset.css to clear browser defaults -->
 	<link rel="stylesheet" href="assets/css/reset.css">
 	<!-- Bootstrap CDN link -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- Google fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+	<!-- Materialize CSS framework segment -->
+	<link rel="stylesheet" href="assets/css/materialize.css">
 	<!-- Personal stylesheet -->
 	<link rel="stylesheet" href="assets/css/style.css">
 	<!-- Favicon -->
 	<link rel="icon" href="assets/images/poke-ball.png">
 </head>
-<body>
+<body class="center-block">
+	<!-- Header -->
 	<header class="row">
-		<div class="col-xs-12">
-			<img src="assets/images/PH-Logo.png" alt="Pokemon Hangman title header">
+		<div class="col-xs-12 center-block">
+			<img src="assets/images/PH-Logo.png" class="center-block" alt="Pokemon Hangman title header">
 		</div>
 	</header>
 
-	<div class="content row clearfix" id="top-box">
+	<!-- Top box -->
+	<div class="content row center-block" id="top-box">
 		<div class="col-xs-2">
-			<p role="button" class="left p-button" id="toggle-audio">Sound: On</p>
+			<p role="button" class="pull-left p-button flow-text" id="toggle-audio">Sound: On</p>
 		</div>
 		<div class="col-xs-8">
-			<div class="segment" id="instructions">
-				<p>Press a key to start a new word.</p>
+			<div class="segment">
+				<p class="flow-text" id="instructions">Press a key to start a new word.</p>
 			</div>
-			<div class="segment double valign" id="blanks"></div>
+			<div class="segment" id="blanks"></div>
 		</div>
 		<div class="col-xs-2">
-			<div class="segment right" id="wins"><p>Wins: 0</p></div>
+			<div class="segment">
+				<p class="flow-text pull-right" id="wins">Wins: 0</p>
+			</div>
 		</div>
 	</div>
-	<div class="content row clearfix" id="bottom-box">
+	
+	<!-- Bottom box -->
+	<div class="content row bottom center-block" id="bottom-box">
 		<div class="col-md-12">
-			<div class="segment" id="remaining"></div>
-			<div class="segment double" id="guessed"></div>
+			<div class="segment">
+				<p class="flow-text p-single" id="remaining"></p>
+			</div>
+			<div class="segment">
+				<p class="flow-text p-double" id="guessed"></p>
+			</div>
 			<div class="segment collection clearfix" id="bag"></div>
-
 		</div>
 	</div>
 
