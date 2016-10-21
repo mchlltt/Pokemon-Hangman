@@ -10,9 +10,7 @@ var game = {
 	guesses: -1,
 	blanks: [],
 	letters: [],
-	lettersCorrect: [],
-	lettersIncorrect: [],
-	lettersRemaining: [],
+	lettersGuessed: [],
 	progress: [],
 	sound: true,
 	pokeBag: [],
@@ -33,10 +31,9 @@ var game = {
 	roundReset: function() {
 		// Reset some variables to their initial states.
 		game.blanks = [];
-		game.lettersIncorrect = [];
-		game.lettersCorrect = [];
 		game.progress = [];
 		game.guesses = -1;
+		game.lettersGuessed = [];
 		// Pick a number and pull the word and its letters, then generate blanks.
 		var number = Math.floor(Math.random()*game.pokeData.length);
 		game.word = game.pokeData[number].name;
@@ -58,7 +55,7 @@ var game = {
 		document.getElementById('blanks').innerHTML='<p class="blank-p">' + game.progress.join('') + '</p>';
 		document.getElementById('remaining').innerHTML='Tries Remaining: ' + 
 														(game.letters.length - game.guesses) + game.pokeball;
-		document.getElementById('guessed').innerHTML='Letters already guessed:<br>' + game.lettersIncorrect.join(' ');
+		document.getElementById('guessed').innerHTML='Letters already guessed:<br>';
 	},
 
 
@@ -75,29 +72,28 @@ var game = {
 			if (game.isAlpha(x)) {
 				// Convert the guess to lowercase.
 				x = x.toLowerCase();
-
-				// If the letter is already in the incorrectly guessed letters, do nothing.
-				if (game.lettersIncorrect.indexOf(x) !== -1) {
+				// If the letter is already in the guessed letters, do nothing.
+				if (game.lettersGuessed.indexOf(x) !== -1) {
 					return;
 				} else {
-					// If the guess is in the word, add it to the array of correct letters.
-					if (game.letters.indexOf(x) !== -1) {
-						game.lettersCorrect.push(x);
-					// Else add it to the array of incorrect letters and lose a try.
-					} else {
-						game.lettersIncorrect.push(x);
+					// Add the letter to the array of guesses.
+					game.lettersGuessed.push(x);
+					// If the letter isn't in the word, remove a guess.
+					if (game.letters.indexOf(x) === -1) {
 						game.guesses++;
 					}
 
 					// Check whether there are any letters in the word that aren't in the array of correct letters.
+					// If this is true for any letter in the word, win gets set to false.
+					var win = true;
 					for (var j=0;j < game.letters.length;j++) {
-						if (game.lettersCorrect.indexOf(game.letters[j]) === -1) {
-							game.lettersRemaining.push(game.letters[j]);
+						if (game.lettersGuessed.indexOf(game.letters[j]) === -1) {
+							win = false;
 						}
 					}
 
-					// If all the letters in the word are in the array of correct letters, you win!
-					if (game.lettersRemaining.length === 0) {
+					// If there weren't any letters in the word are that hadn't been guessed, you win!
+					if (win) {
 						game.winBehavior();
 					// If you're out of guesses, you lose.
 					} else if (game.letters.length - game.guesses < 1) {
@@ -118,18 +114,23 @@ var game = {
 	// Update HTML based on last guess and prepare for a new guess.
 	letterReset: function() {
 		game.progressUpdate();
-		game.lettersRemaining = [];
+		lettersIncorrect = [];
+		for (var i=0;i < game.lettersGuessed.length;i++) {
+			if (game.letters.indexOf(game.lettersGuessed[i]) === -1) {
+				lettersIncorrect.push(game.lettersGuessed[i]);
+			}
+		};
 		document.getElementById('blanks').innerHTML='<p class="blank-p">' + game.progress.join('') + '</p>';
 		document.getElementById('remaining').innerHTML='Tries Remaining: ' +
 														(game.letters.length - game.guesses) + game.pokeball;
-		document.getElementById('guessed').innerHTML='Letters already guessed:<br>' + game.lettersIncorrect.join(' ');
+		document.getElementById('guessed').innerHTML='Letters already guessed:<br>' + lettersIncorrect.join(' ');
 	},
 
 
 	// Update the blanks variable upon word creation and after each guess.
 	progressUpdate: function() {
 		for (var k=0;k < game.letters.length;k++) {
-			if (game.lettersCorrect.indexOf(game.letters[k]) !== -1) {
+			if (game.lettersGuessed.indexOf(game.letters[k]) !== -1) {
 				game.progress[k] = game.letters[k];
 			} else {
 				game.progress[k] = '_';
@@ -186,10 +187,13 @@ var game = {
 // CALLS
 // Main game behavior
 document.onkeyup = function(event) {
-	// Determine which key was pressed.
 	var currentGuess = String.fromCharCode(event.keyCode);
-	// Hand it off to the functions inside game.
-	game.checkLetter(currentGuess);
+	// Hand it off to the functions inside game unless they were hitting ctrl to refresh.
+	if (event.keyCode === 17) {
+		return;
+	} else {
+		game.checkLetter(currentGuess);
+	}
 };
 
 
