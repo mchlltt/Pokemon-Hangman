@@ -121,7 +121,7 @@ var game = {
 		game.lettersRemaining = [];
 		document.getElementById('blanks').innerHTML='<p class="blank-p">' + game.progress.join('') + '</p>';
 		document.getElementById('remaining').innerHTML='Tries Remaining: ' +
-														(game.letters.length - game.guesses) + pokeball;
+														(game.letters.length - game.guesses) + game.pokeball;
 		document.getElementById('guessed').innerHTML='Letters already guessed:<br>' + game.lettersIncorrect.join(' ');
 	},
 
