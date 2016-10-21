@@ -35,8 +35,8 @@ for (i in 1:length(final$pokemon_id)) {
   object <- append(object,line)
 }
 
-writeLines(object,con = "output.txt")
+writeLines(object,con = "~/cbc/week-3-game/assets/data/dictionary.txt")
 
 finalJSON <- toJSON(final)
 
-writeLines(finalJSON,"~/cbc/week-3-game/assets/pokemon/pokemon_cleaned.json")
+writeLines(finalJSON,"~/cbc/week-3-game/assets/data/pokemon_cleaned.json")

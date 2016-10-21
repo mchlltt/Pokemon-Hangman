@@ -1,11 +1,11 @@
 /*General classes*/
 body {
 	background: url('../images/landscape2.jpg') #7fac71;
-	background-size: cover;
 	background-repeat: no-repeat;
+	background-size: cover;
 	font-family: 'Comfortaa', Helvetica, 'Helvetica Neue', Arial;
-	width: 98%;
 	padding: 1%;
+	width: 98%;
 }
 
 p {
@@ -20,7 +20,8 @@ header img {
 
 /*Content*/
 .content {
-	background: rgba(255, 255, 255, .4);
+	background-color: white;
+	background-color: rgba(255, 255, 255, .4);
 	border: 5px double;
 	border-color: white;
 	border-radius: 15px;
@@ -62,8 +63,8 @@ header img {
 	display: inline-flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
-	width: 100%;
 	min-height: 96px;
+	width: 100%;
 }
 
 .collection:after {
