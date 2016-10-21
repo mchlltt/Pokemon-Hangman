@@ -10,7 +10,7 @@ For those assessing the contents of the repository (rather than just wishing to 
   - data/ holds Pokemon-related data and a cleaning script for that data.
   - images/ holds the logo, background, and all sprites.
   - javacript/ holds the JavaScript code for the game.
-  - sound/ holds an MP3 file per Pokemon.
+  - music/ holds an MP3 file per Pokemon.
   
   
 ----
