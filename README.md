@@ -4,7 +4,7 @@ This repository hosts a pure JavaScript-based hangman game themed around the gam
 To play the game, you can either visit https://powerful-badlands-59082.herokuapp.com/ or clone this repository and open index.html in a web browser.
 
 For those assessing the contents of the repository (rather than just wishing to play the game):
-- The root directory contains the game's HTML, README, and Heroku App files.
+- The root directory contains the game's HTML, README, .gitignore, and Heroku App files.
 - The assets/ folder holds the following subfolders:
   - css/ holds local stylesheets.
   - data/ holds Pokemon-related data and a cleaning script for that data.
