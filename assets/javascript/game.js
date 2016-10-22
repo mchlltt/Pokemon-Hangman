@@ -119,7 +119,7 @@ var game = {
 			if (game.letters.indexOf(game.lettersGuessed[i]) === -1) {
 				lettersIncorrect.push(game.lettersGuessed[i]);
 			}
-		};
+		}
 		document.getElementById('blanks').innerHTML='<p class="blank-p">' + game.progress.join('') + '</p>';
 		document.getElementById('remaining').innerHTML='Tries Remaining: ' +
 														(game.letters.length - game.guesses) + game.pokeball;
@@ -188,8 +188,8 @@ var game = {
 // Main game behavior
 document.onkeyup = function(event) {
 	var currentGuess = String.fromCharCode(event.keyCode);
-	// Hand it off to the functions inside game unless they were hitting ctrl to refresh.
-	if (event.keyCode === 17) {
+	// Hand it off to the functions inside game unless they were hitting ctrl or cmd.
+	if ([17, 91, 93].indexOf(event.keyCode) !== -1) {
 		return;
 	} else {
 		game.checkLetter(currentGuess);
