@@ -1,17 +1,18 @@
 # Pokemon Hangman
-This repository hosts a pure JavaScript-based hangman game themed around the game Pokemon. It currently includes the first 493 Pokemon, minus about a dozen with names with non-alphabetical characters (e.g., Porygon2).
+A pure JavaScript-based hangman game themed around the Pokemon franchise. It currently includes the first 493 Pokemon, minus about a dozen with names with non-alphabetical characters (e.g., Porygon2).
 
-To play the game, you can either visit https://powerful-badlands-59082.herokuapp.com/ or clone this repository and open index.html in a web browser.
+## Getting started
+To play the game, you can visit https://poke-hangman.herokuapp.com/. 
 
-For those assessing the contents of the repository (rather than just wishing to play the game):
-- The root directory contains the game's HTML, README, .gitignore, and Heroku App files.
-- The assets/ folder holds the following subfolders:
-  - css/ holds local stylesheets.
-  - data/ holds Pokemon-related data and a cleaning script for that data.
-  - images/ holds the logo, background, and all sprites.
-  - javacript/ holds the JavaScript code for the game.
-  - music/ holds an MP3 file per Pokemon.
-  
-  
+You also have the option of running the game locally.
+- Run `git clone <repo url>`
+- Open `index.html` in a modern web browser.
+
+## Author 
+Mich Elliott - [mchlltt](https://github.com/mchlltt/)
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.MD) file for details
+
 ----
 All Pokemon characters, logos, and associated content are the sole property of the Pokemon Company. This game is intended purely as fan art.
